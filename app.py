@@ -6,7 +6,6 @@ from langchain_community.vectorstores import FAISS
 from langchain_core.prompts import ChatPromptTemplate
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain.chains import create_retrieval_chain
-from api import Groq_API, Mistral_API
 from langchain_mistralai import MistralAIEmbeddings
 import streamlit as st
 from streamlit_chat import message
