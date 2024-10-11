@@ -23,3 +23,4 @@ sentence_transformers
 PyPDF2
 langchain-objectbox
 langchain_mistralai
+streamlit_chat
