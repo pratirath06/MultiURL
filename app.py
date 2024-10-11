@@ -1,4 +1,5 @@
 import os
+import time
 from langchain_groq import ChatGroq
 from langchain_community.document_loaders import WebBaseLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
@@ -53,7 +54,9 @@ if urls:
         Question: {input}""")
 
         document_chain = create_stuff_documents_chain(llm, prompt)
+        time.sleep(2)
         retriever = st.session_state.db.as_retriever()
+        time.sleep(2)
         retrieval_chain = create_retrieval_chain(retriever, document_chain)
 
         response_container = st.container()
@@ -62,6 +65,7 @@ if urls:
         with textcontainer:
             query = st.text_input("Query: ")
             if query:
+                time.sleep(5)
                 with st.spinner("typing..."):
                     response = retrieval_chain.invoke({"input": query})
                 st.session_state.requests.append(query)
