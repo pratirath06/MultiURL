@@ -36,7 +36,7 @@ if urls:
             st.session_state['requests'] = []
 
         if "vector" not in st.session_state:
-            st.session_state.embedding =  MistralAIEmbeddings(model="mistral-embed", api_key=Mistral_API)
+            st.session_state.embedding =  MistralAIEmbeddings(model="mistral-embed", api_key=st.secrets["Mistral_API"])
             st.session_state.documents = []
 
         # Load documents based on the selected URL
