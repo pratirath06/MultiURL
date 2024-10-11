@@ -20,12 +20,12 @@ llm = ChatGroq(model="llama3-8b-8192")
 
 st.title("Multi-URL Chatbot")
 
-# Sidebar input for multiple URLs
-urls_input = st.sidebar.text_area("Enter URLs (one per line)", placeholder="https://example.com\nhttps://another.com")
+# Input for multiple URLs
+urls_input = st.text_area("Enter URLs (one per line)", placeholder="https://example.com\nhttps://another.com")
 urls = urls_input.splitlines()
 
 if urls:
-    selected_url = st.sidebar.selectbox("Select URL to interact with", urls)
+    selected_url = st.selectbox("Select URL to interact with", urls)  # Moved to main screen
 
     if selected_url:
         st.write(f"Selected URL: {selected_url}")
@@ -54,9 +54,7 @@ if urls:
         Question: {input}""")
 
         document_chain = create_stuff_documents_chain(llm, prompt)
-        time.sleep(2)
         retriever = st.session_state.db.as_retriever()
-        time.sleep(2)
         retrieval_chain = create_retrieval_chain(retriever, document_chain)
 
         response_container = st.container()
@@ -65,7 +63,6 @@ if urls:
         with textcontainer:
             query = st.text_input("Query: ")
             if query:
-                time.sleep(5)
                 with st.spinner("typing..."):
                     response = retrieval_chain.invoke({"input": query})
                 st.session_state.requests.append(query)
