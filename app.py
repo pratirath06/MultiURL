@@ -12,8 +12,8 @@ import streamlit as st
 from streamlit_chat import message
 
 # Set API Keys
-os.environ["GROQ_API_KEY"] = Groq_API
-os.environ["MISTRALAI_API_KEY"] = Mistral_API
+os.environ["GROQ_API_KEY"] = st.secrets["Groq_API"]
+os.environ["MISTRALAI_API_KEY"] = st.secrets["Mistral_API"]
 
 # Initialize LLM
 llm = ChatGroq(model="llama3-8b-8192")
