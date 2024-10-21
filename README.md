@@ -51,7 +51,9 @@
     pip install -r requirements.txt
     ```
 
-3. Run the python script:
+3. Set up your API keys for Groq and MistralAI
+
+4. Run the python script:
     ```bash
-    python main.py
+    streamlit run main.py
     ```
