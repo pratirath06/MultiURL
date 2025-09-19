@@ -16,7 +16,7 @@ os.environ["GROQ_API_KEY"] = st.secrets["Groq_API"]
 os.environ["MISTRALAI_API_KEY"] = st.secrets["Mistral_API"]
 
 # Initialize LLM
-llm = ChatGroq(model="llama3-8b-8192")
+llm = ChatGroq(model="llama-3.1-70b-versatile")
 
 st.title("Multi-URL Chatbot")
 
